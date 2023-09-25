@@ -7,6 +7,7 @@ https://napari.org/stable/plugins/guides.html?#readers
 """
 import numpy as np
 
+# readable_extensions = tuple({x for f in formats for x in f.extensions})
 
 def napari_get_reader(path):
     """A basic implementation of a Reader contribution.
@@ -29,7 +30,7 @@ def napari_get_reader(path):
         path = path[0]
 
     # if we know we cannot read the file, we immediately return None.
-    if not path.endswith(".npy"):
+    if not path.endswith("_seg.npy"):
         return None
 
     # otherwise we return the *function* that can read ``path``.
@@ -61,12 +62,17 @@ def reader_function(path):
     # handle both a string and a list of strings
     paths = [path] if isinstance(path, str) else path
     # load all files into array
-    arrays = [np.load(_path) for _path in paths]
+    arrays = [np.load(_path, allow_pickle=True) for _path in paths]
     # stack arrays into single array
     data = np.squeeze(np.stack(arrays))
 
-    # optional kwargs for the corresponding viewer.add_* method
-    add_kwargs = {}
-
-    layer_type = "image"  # optional, default is "image"
-    return [(data, add_kwargs, layer_type)]
+    # return [(data, add_kwargs, layer_type)]
+    datadict = data.item()
+    img = datadict['img']
+    labels = datadict['masks']
+    outlines = datadict['outlines']
+    # Readers are expected to return data as a list of tuples, where each tuple
+    # is (data, [meta_dict, [layer_type]])
+    return [(img, {'channel_axis': np.shape(img)[-1]}, 'image'),
+            (labels.astype(int), {'name': "cellpose_seg", 'blending': "additive"}, 'labels'),
+            (outlines.astype(int), {'name': "cellpose_outlines", 'blending': "additive"}, 'image'),]
