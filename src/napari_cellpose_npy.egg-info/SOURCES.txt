@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/napari_cellpose_npy/__init__.py
+src/napari_cellpose_npy/_reader.py
+src/napari_cellpose_npy/napari.yaml
+src/napari_cellpose_npy.egg-info/PKG-INFO
+src/napari_cellpose_npy.egg-info/SOURCES.txt
+src/napari_cellpose_npy.egg-info/dependency_links.txt
+src/napari_cellpose_npy.egg-info/entry_points.txt
+src/napari_cellpose_npy.egg-info/requires.txt
+src/napari_cellpose_npy.egg-info/top_level.txt
+src/napari_cellpose_npy/_tests/__init__.py
+src/napari_cellpose_npy/_tests/test_reader.py

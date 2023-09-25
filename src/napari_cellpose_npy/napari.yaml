@@ -1,0 +1,11 @@
+name: napari-cellpose-npy
+display_name: Load Cellpose Segmentation
+contributions:
+  commands:
+    - id: napari-cellpose-npy.get_reader
+      python_name: napari_cellpose_npy._reader:napari_get_reader
+      title: Open data with Load Cellpose Segmentation
+  readers:
+    - command: napari-cellpose-npy.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy']

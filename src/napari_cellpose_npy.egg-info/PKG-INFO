@@ -1,3 +1,36 @@
+Metadata-Version: 2.1
+Name: napari-cellpose-npy
+Version: 0.0.1
+Summary: A simple plugin to load cellpose segmentation files
+Home-page: https://github.com/arnavm/napari-cellpose-npy
+Author: Arnav Moudgil
+Author-email: amoudgil@stanford.edu
+License: BSD-3-Clause
+Project-URL: Bug Tracker, https://github.com/arnavm/napari-cellpose-npy/issues
+Project-URL: Documentation, https://github.com/arnavm/napari-cellpose-npy#README.md
+Project-URL: Source Code, https://github.com/arnavm/napari-cellpose-npy
+Project-URL: User Support, https://github.com/arnavm/napari-cellpose-npy/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: napari
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Provides-Extra: testing
+Requires-Dist: tox; extra == "testing"
+Requires-Dist: pytest; extra == "testing"
+Requires-Dist: pytest-cov; extra == "testing"
+
 # napari-cellpose-npy
 
 [![License BSD-3](https://img.shields.io/pypi/l/napari-cellpose-npy.svg?color=green)](https://github.com/arnavm/napari-cellpose-npy/raw/main/LICENSE)

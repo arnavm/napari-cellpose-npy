@@ -1,0 +1,2 @@
+[napari.manifest]
+napari-cellpose-npy = napari_cellpose_npy:napari.yaml
